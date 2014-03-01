@@ -1,0 +1,45 @@
+/*body {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+/*
+.aParent div {
+	float: left;
+	clear: none; 
+}
+*/
+
+.topBar {
+	width: 80%;
+	min-height: 50px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 10px;
+	background-color: #f8f8f8;
+	border-color: #e7e7e7;
+	text-align: center;
+}
+
+.titleBar {
+	border: 1px solid transparent;
+	border-radius: 10px;
+	background-color: #f8f8f8;
+	border-color: #e7e7e7;
+	width: 80%;
+	text-align: center;
+}
+
+.rounded {
+	border:2px solid;
+	border-radius:25px;
+	border-color: #e7e7e7;
+}
+
+th {
+	text-align: center;
+}
+
+td {
+	text-align: center;
+}
