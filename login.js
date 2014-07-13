@@ -1,40 +1,20 @@
 $(document).ready(function() {
-   $('loginButton').click(test);
+        $('form[name=loginForm]').submit(function() {
 
-function test() {
-	var email = $("input#email").val();
-	var password = $("input#password").val();
-	checkLogin(email, password);
-}
+            $.post('/ajax.php', {username: $('[name=username]').val(),
+                    password: $('[name=password]').val()}, 
+                function(data) {
+                    if(data.success)
+                    {
+                        location.href = data.redirect;
+                    }
+                    else
+                    {
+                        alert(data.message);
+                        //$('#errorConsole').html(data.message);
+                    }
+                }, 'json');
 
-function checkLogin(email, pass){
-	var dataString = "username=" + email + "&password=" + pass; // constructing our param variable that will be send with ajax call
-	//var formData = {username:"test@test",password:"test"}; //Array 
-	// Ajax Call to check if the username / password are correct
-
-	$.post("checkLogin.php",
-		{username:"test@test", password:"test"},
-		function(data, textStatus, jqXHR)
-		{
-			alert(data);
-		});
-/*
-	$.ajax({
-		url: "checkLogin.php",
-		type: "POST",
-		data: dataString,
-    	success: function(data, textStatus, jqXHR) {
-			if (data == "notFound"){
-				alert("LOGIN INCORRECT");
-			} else {
-				alert("LOGIN SUCCESSFULL!");
-			}
-		},
-    	error: function (jqXHR, textStatus, errorThrown) {
-             alert('failure............');
-        }
-
-	});*/
-}  //end of checkLogin() function
-});//end of jQuery code
-
+            return false;
+        });
+    });
